@@ -14,8 +14,7 @@ public class Board {
         currBoard = new int[length + 2][width + 2];
 
         currBoard[3][2] = 1;
-        currBoard[2][2] = 1;
-        currBoard[4][3] = 1;
+        currBoard[3][3] = 1;
         currBoard[3][4] = 1;
     }
 

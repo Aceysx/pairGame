@@ -16,20 +16,19 @@ public class BoardOperator {
 
 
     public static int[][] boardStateChange(int[][] board) {
-        int[][] nextBoard = board;
+        int[][] nextBoard = new int[board.length][board[0].length];
 
-        for (int outterIndex = 0; outterIndex < board.length; ++outterIndex) {
-            for (int innerIndex = 0; innerIndex < board[outterIndex].length; ++innerIndex) {
+        for (int outterIndex = 1; outterIndex < board.length - 1; ++outterIndex) {
+            for (int innerIndex = 1; innerIndex < board[outterIndex].length - 1; ++innerIndex) {
                 nextBoard[outterIndex][innerIndex] = getCurrentState(outterIndex, innerIndex, board);
             }
         }
 
-        return board;
+        return nextBoard;
     }
 
     private static int getCurrentState(int y, int x, int[][] board) {
         int aliveNumber = 0;
-
         aliveNumber += board[y - 1][x - 1] == 1 ? 1 : 0;
         aliveNumber += board[y - 1][x] == 1 ? 1 : 0;
         aliveNumber += board[y - 1][x + 1] == 1 ? 1 : 0;
@@ -40,7 +39,6 @@ public class BoardOperator {
         aliveNumber += board[y + 1][x - 1] == 1 ? 1 : 0;
         aliveNumber += board[y + 1][x] == 1 ? 1 : 0;
         aliveNumber += board[y + 1][x + 1] == 1 ? 1 : 0;
-
         if (aliveNumber == 2) return board[y][x];
         if (aliveNumber == 3) return 1;
 
