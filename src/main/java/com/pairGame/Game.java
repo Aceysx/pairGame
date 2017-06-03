@@ -7,6 +7,9 @@ import java.util.Scanner;
  */
 public class Game {
     private static Scanner scanner = new Scanner(System.in);
+    private static String[] points;
+    private static String[] reg = new String[2];
+    private static Board board = null;
 
     public static void main(String[] args) {
         Board board = initBoard();
@@ -26,8 +29,6 @@ public class Game {
     }
 
     public static Board initBoard() {
-        Board board = null;
-
         System.out.println("是(y)否(n)使用默认初始化的坐标");
         if ("y".equals(scanner.nextLine())) {
             board = useDefaultModel();
@@ -41,9 +42,6 @@ public class Game {
     }
 
     public static Board useDefaultModel() {
-        String[] points;
-        String[] reg = new String[2];
-
         points = Constant.INIT_POINTS.split(" ");
         reg[0] = Constant.INIT_SIZE;
         reg[1] = Constant.INIT_SIZE;
@@ -55,9 +53,6 @@ public class Game {
     }
 
     public static Board userCustomize() {
-        String[] points;
-        String[] reg;
-
         System.out.println("请输入棋盘大小:(例如：10,10)");
         reg = scanner.nextLine().split(",");
         System.out.println("请输入存活的细胞的坐标点，长度小于" + reg[0] + ",宽度小于" + reg[1] + "输入样例：1,1 2,3 4,5");
