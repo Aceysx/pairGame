@@ -40,4 +40,15 @@ public class BoardOperatorTest {
         Assert.assertArrayEquals(expect, actual);
     }
 
+    @Test
+    public void testGetCurrentState() {
+        int[] except = {1, 0, 0};
+        int[] actual = new int[3];
+
+        actual[0] = BoardOperator.getCurrentState(2, 2, board.getCurrBoard(), 3);
+        actual[1] = BoardOperator.getCurrentState(2, 3, board.getCurrBoard(), 2);
+        actual[2] = BoardOperator.getCurrentState(2, 0, board.getCurrBoard(), 1);
+
+        Assert.assertArrayEquals(except, actual);
+    }
 }

@@ -24,8 +24,8 @@ public class BoardOperator {
         return nextBoard;
     }
 
-    public static int getCurrentState(int outerIndex, int innerIndex, int[][] board, int aliveNumber) {
-        if (aliveNumber == Constant.NO_CHANGE_NUMBER) return board[outerIndex][innerIndex];
+    public static int getCurrentState(int y, int x, int[][] board, int aliveNumber) {
+        if (aliveNumber == Constant.NO_CHANGE_NUMBER) return board[y][x];
         if (aliveNumber == Constant.ALIVE_NUMBER) return 1;
         return 0;
     }
