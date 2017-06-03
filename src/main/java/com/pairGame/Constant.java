@@ -6,7 +6,7 @@ package com.pairGame;
 public class Constant {
 
     public static int INTERVAL_TIME = 1000;
-    public static int BOX_SIZE = 20;
+    public static String PANEL_TITLE = "GAME";
     public static int CHESS_SIZE = 15;
     public static int INIT_LOCATION_POINT = 15;
     public static int INCREMENT_DISTANCE = 15;

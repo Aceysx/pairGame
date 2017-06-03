@@ -11,36 +11,26 @@ public class Panel extends JFrame {
     private int x = 0, y = 0;
     private int[][] board;
 
-    public void showUI(int[][] board) {
+    public void showBoardUI(int[][] board) {
         this.board = board;
-        this.setSize(board.length * Constant.BOX_SIZE, board[0].length * Constant.BOX_SIZE);
+        this.setTitle(Constant.PANEL_TITLE);
         FlowLayout flowLayout = new FlowLayout();
-
+        this.getGraphicsConfiguration().getDevice()
+                .setFullScreenWindow(this);
         this.setLayout(flowLayout);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(3);
         this.setResizable(false);
         this.setVisible(true);
-
-        try {
-            Thread.sleep(Constant.INTERVAL_TIME);
-        } catch (Exception ef) {
-            ef.printStackTrace();
-        }
-        Graphics g = this.getGraphics();
     }
 
-    public void paint(Graphics g) {
-        super.paint(g);
+    public void paint(Graphics graphics) {
+        super.paint(graphics);
         x = Constant.INIT_LOCATION_POINT;
         y = Constant.INIT_LOCATION_POINT;
-        Color c = g.getColor();
-        g.setColor(Color.green);
-
+        graphics.setColor(Color.green);
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == 1) {
-                    g.fillOval(x, y, Constant.CHESS_SIZE, Constant.CHESS_SIZE);
+                    graphics.fillOval(x, y, Constant.CHESS_SIZE, Constant.CHESS_SIZE);
                 }
                 y += Constant.INCREMENT_DISTANCE;
             }

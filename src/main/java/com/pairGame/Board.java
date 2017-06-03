@@ -4,8 +4,8 @@ package com.pairGame;
  * Created by acey on 17-6-3.
  */
 public class Board {
-    private int length;
-    private int width;
+    private int length = 0;
+    private int width = 0;
     private int[][] currBoard;
 
     public Board(int length, int width) {
@@ -18,22 +18,6 @@ public class Board {
         for (String str : points) {
             currBoard[Integer.parseInt(str.split(",")[0])][Integer.parseInt(str.split(",")[1])] = 1;
         }
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
     public int[][] getCurrBoard() {
