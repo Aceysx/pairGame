@@ -8,7 +8,6 @@ import java.awt.*;
  */
 
 public class Panel extends JFrame {
-
     private int x = 0, y = 0;
     private int[][] board;
 

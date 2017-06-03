@@ -12,7 +12,6 @@ public class BoardOperator {
 
     }
 
-
     public static int[][] boardStateChange(int[][] board) {
         int[][] nextBoard = new int[board.length][board[0].length];
 
