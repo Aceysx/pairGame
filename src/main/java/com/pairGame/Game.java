@@ -11,7 +11,7 @@ public class Game {
 
         while (true) {
             BoardOperator.showBoard(board.getCurrBoard());
-            board.setCurrBoard(BoardOperator.boardStateChange(board.getCurrBoard()));
+            board.setCurrBoard(BoardOperator.getNextBoard(board.getCurrBoard()));
 
             try {
                 Thread.sleep(Constant.INTERVAL_TIME);

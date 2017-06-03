@@ -25,7 +25,7 @@ public class BoardOperatorTest {
         except[3][2] = 1;
         except[4][2] = 1;
 
-        int[][] actual = BoardOperator.boardStateChange(board.getCurrBoard());
+        int[][] actual = BoardOperator.getNextBoard(board.getCurrBoard());
         Assert.assertArrayEquals(except,actual);
     }
 

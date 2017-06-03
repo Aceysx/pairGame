@@ -11,7 +11,7 @@ public class BoardOperator {
         panel.paint(panel.getGraphics());
     }
 
-    public static int[][] boardStateChange(int[][] board) {
+    public static int[][] getNextBoard(int[][] board) {
         int[][] nextBoard = new int[board.length][board[0].length];
 
         for (int outerIndex = 1; outerIndex < board.length - 1; ++outerIndex) {
