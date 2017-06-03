@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
     private static Scanner scanner = new Scanner(System.in);
     private static String[] points;
-    private static String[] reg = new String[2];
+    private static String[] boardArea = new String[2];
     private static Board board = null;
 
     public static void main(String[] args) {
@@ -43,10 +43,10 @@ public class Game {
 
     public static Board useDefaultModel() {
         points = Constant.INIT_POINTS.split(" ");
-        reg[0] = Constant.INIT_SIZE;
-        reg[1] = Constant.INIT_SIZE;
+        boardArea[0] = Constant.INIT_SIZE;
+        boardArea[1] = Constant.INIT_SIZE;
 
-        Board board = new Board(Integer.parseInt(reg[0].trim()), Integer.parseInt(reg[1].trim()));
+        Board board = new Board(Integer.parseInt(boardArea[0].trim()), Integer.parseInt(boardArea[1].trim()));
         board.initBoard(points);
 
         return board;
@@ -54,10 +54,10 @@ public class Game {
 
     public static Board userCustomize() {
         System.out.println("请输入棋盘大小:(例如：10,10)");
-        reg = scanner.nextLine().split(",");
-        System.out.println("请输入存活的细胞的坐标点，长度小于" + reg[0] + ",宽度小于" + reg[1] + "输入样例：1,1 2,3 4,5");
+        boardArea = scanner.nextLine().split(",");
+        System.out.println("请输入存活的细胞的坐标点，长度小于" + boardArea[0] + ",宽度小于" + boardArea[1] + "输入样例：1,1 2,3 4,5");
         points = scanner.nextLine().split(" ");
-        Board board = new Board(Integer.parseInt(reg[0].trim()), Integer.parseInt(reg[1].trim()));
+        Board board = new Board(Integer.parseInt(boardArea[0].trim()), Integer.parseInt(boardArea[1].trim()));
         board.initBoard(points);
 
         return board;
