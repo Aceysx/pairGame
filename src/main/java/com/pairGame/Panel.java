@@ -48,5 +48,4 @@ public class Panel extends JFrame {
             y = Constant.INIT_LOCATION_POINT;
         }
     }
-
 }
