@@ -13,7 +13,6 @@ public class Game {
         while (true) {
             BoardOperator.showBoard(board.getCurrBoard());
             board.setCurrBoard(BoardOperator.boardStateChange(board.getCurrBoard()));
-            System.out.println();
 
             try {
                 Thread.sleep(intervalTime);

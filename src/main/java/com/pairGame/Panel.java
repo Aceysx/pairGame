@@ -7,13 +7,14 @@ import java.awt.*;
  * Created by acey on 17-6-3.
  */
 
-    public class Panel extends JFrame {
+public class Panel extends JFrame {
 
-    private int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    private int x1 = 0, y1 = 0;
+    private int[][] board;
 
-    public void showUI() {
-
-        this.setSize(1000, 1000);
+    public void showUI(int[][] board) {
+        this.board = board;
+        this.setSize(board.length * 30, board[0].length * 30);
 
         this.setTitle("game");
 
@@ -36,40 +37,20 @@ import java.awt.*;
 
     public void paint(Graphics g) {
         super.paint(g);
-
         x1 = 25;
-
         y1 = 25;
-
-        x2 = x1 + 500;
-
-        for (int i = 0; i < 11; i++) {
-
-            y1 += 25;
-
-            System.out.println("-->");
-            Color c = g.getColor();
-
-            g.setColor(Color.black);
-            g.fillOval(x1, y1, 20, 20);
-        }
-
-        x1 = 25;
-
-        y1 = 25;
-
-        y2 = x1 + 500;
-
-        for (int j = 0; j < 11; j++) {
-            Color c = g.getColor();
-
-            g.setColor(Color.black);
-            g.fillOval(x1, y1, 20, 20);
-
+        Color c = g.getColor();
+        g.setColor(Color.black);
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] == 1) {
+                    g.fillOval(x1, y1, 20, 20);
+                }
+                y1 += 25;
+            }
             x1 += 25;
-
+            y1 = 25;
         }
-
     }
 
 }
