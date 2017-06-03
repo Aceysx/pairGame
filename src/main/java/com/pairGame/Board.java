@@ -6,15 +6,19 @@ package com.pairGame;
 public class Board {
     private int length;
     private int width;
-    private char[][] currBoard;
-    private char[][] nextBoard;
+    private int[][] currBoard;
 
     public Board(int length, int width) {
         this.length = length;
         this.width = width;
-        currBoard = new char[length][width];
-        nextBoard = new char[length][width];
+        currBoard = new int[length + 2][width + 2];
+
+        currBoard[3][2] = 1;
+        currBoard[2][2] = 1;
+        currBoard[4][3] = 1;
+        currBoard[3][4] = 1;
     }
+
 
     public int getLength() {
         return length;
@@ -32,19 +36,12 @@ public class Board {
         this.width = width;
     }
 
-    public char[][] getCurrBoard() {
+    public int[][] getCurrBoard() {
         return currBoard;
     }
 
-    public void setCurrBoard(char[][] currBoard) {
+    public void setCurrBoard(int[][] currBoard) {
         this.currBoard = currBoard;
     }
 
-    public char[][] getNextBoard() {
-        return nextBoard;
-    }
-
-    public void setNextBoard(char[][] nextBoard) {
-        this.nextBoard = nextBoard;
-    }
 }
