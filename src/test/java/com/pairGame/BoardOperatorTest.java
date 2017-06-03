@@ -9,7 +9,7 @@ import org.junit.Test;
  * Created by acey on 17-6-3.
  */
 public class BoardOperatorTest {
-    private Board board ;
+    private Board board;
 
     @Before
     public void setUp() {
@@ -26,7 +26,19 @@ public class BoardOperatorTest {
         except[4][2] = 1;
 
         int[][] actual = BoardOperator.getNextBoard(board.getCurrBoard());
-        Assert.assertArrayEquals(except,actual);
+        Assert.assertArrayEquals(except, actual);
+    }
+
+    @Test
+    public void testGetCurrentState() {
+        int[] expect = {1, 0, 0};
+        int[] actual = new int[3];
+
+        actual[0] = BoardOperator.getCurrentState(2, 2, board.getCurrBoard());
+        actual[1] = BoardOperator.getCurrentState(1, 1, board.getCurrBoard());
+        actual[2] = BoardOperator.getCurrentState(2, 3, board.getCurrBoard());
+
+        Assert.assertArrayEquals(expect, actual);
     }
 
 }

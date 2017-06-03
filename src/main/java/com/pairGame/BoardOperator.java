@@ -23,7 +23,7 @@ public class BoardOperator {
         return nextBoard;
     }
 
-    private static int getCurrentState(int y, int x, int[][] board) {
+    public static int getCurrentState(int y, int x, int[][] board) {
         int aliveNumber = 0;
 
         aliveNumber += board[y - 1][x - 1] == 1 ? 1 : 0;
