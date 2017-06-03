@@ -33,7 +33,7 @@ public class Game {
         System.out.println("请输入需要间隔切换的时间（毫秒）");
         Constant.INTERVAL_TIME = Integer.parseInt(scanner.nextLine());
 
-        Board board = new Board(Integer.parseInt(reg[0]), Integer.parseInt(reg[1]));
+        Board board = new Board(Integer.parseInt(reg[0].trim()), Integer.parseInt(reg[1].trim()));
         board.initBoard(points);
 
         return board;

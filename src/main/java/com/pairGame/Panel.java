@@ -15,20 +15,17 @@ public class Panel extends JFrame {
     public void showUI(int[][] board) {
         this.board = board;
         this.setSize(board.length * 30, board[0].length * 30);
-
         this.setTitle("game");
+        FlowLayout flowLayout = new FlowLayout();
 
-        FlowLayout fl = new FlowLayout();
-
-        this.setLayout(fl);
-
+        this.setLayout(flowLayout);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(3);
         this.setResizable(false);
         this.setVisible(true);
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(Constant.INTERVAL_TIME);
         } catch (Exception ef) {
             ef.printStackTrace();
         }

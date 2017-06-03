@@ -9,6 +9,7 @@ public class BoardOperator {
     public static void showBoard(int[][] board) {
         panel.showUI(board);
         panel.paint(panel.getGraphics());
+
     }
 
 
