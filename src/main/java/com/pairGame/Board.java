@@ -12,12 +12,13 @@ public class Board {
         this.length = length;
         this.width = width;
         currBoard = new int[length + 2][width + 2];
-
-        currBoard[3][2] = 1;
-        currBoard[3][3] = 1;
-        currBoard[3][4] = 1;
     }
 
+    public void initBoard(String[] points) {
+        for (String str : points) {
+            currBoard[Integer.parseInt(str.split(",")[0])][Integer.parseInt(str.split(",")[1])] = 1;
+        }
+    }
 
     public int getLength() {
         return length;
