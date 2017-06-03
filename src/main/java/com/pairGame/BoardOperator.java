@@ -39,8 +39,8 @@ public class BoardOperator {
         aliveNumber += board[y + 1][x] == 1 ? 1 : 0;
         aliveNumber += board[y + 1][x + 1] == 1 ? 1 : 0;
 
-        if (aliveNumber == 2) return board[y][x];
-        if (aliveNumber == 3) return 1;
+        if (aliveNumber == Constant.NO_CHANGE_NUMBER) return board[y][x];
+        if (aliveNumber == Constant.ALIVE_NUMBER) return 1;
         return 0;
     }
 }

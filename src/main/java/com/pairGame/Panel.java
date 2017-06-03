@@ -9,13 +9,12 @@ import java.awt.*;
 
 public class Panel extends JFrame {
 
-    private int x1 = 0, y1 = 0;
+    private int x = 0, y = 0;
     private int[][] board;
 
     public void showUI(int[][] board) {
         this.board = board;
-        this.setSize(board.length * 30, board[0].length * 30);
-        this.setTitle("game");
+        this.setSize(board.length * Constant.BOX_SIZE, board[0].length * Constant.BOX_SIZE);
         FlowLayout flowLayout = new FlowLayout();
 
         this.setLayout(flowLayout);
@@ -34,19 +33,20 @@ public class Panel extends JFrame {
 
     public void paint(Graphics g) {
         super.paint(g);
-        x1 = 25;
-        y1 = 25;
+        x = Constant.INIT_LOCATION_POINT;
+        y = Constant.INIT_LOCATION_POINT;
         Color c = g.getColor();
         g.setColor(Color.black);
+
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == 1) {
-                    g.fillOval(x1, y1, 20, 20);
+                    g.fillOval(x, y, Constant.CHESS_SIZE, Constant.CHESS_SIZE);
                 }
-                y1 += 25;
+                y += Constant.INCREMENT_DISTANCE;
             }
-            x1 += 25;
-            y1 = 25;
+            x += Constant.INCREMENT_DISTANCE;
+            y = Constant.INIT_LOCATION_POINT;
         }
     }
 
