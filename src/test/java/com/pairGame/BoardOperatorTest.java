@@ -17,7 +17,6 @@ public class BoardOperatorTest {
         board.initBoard("3,2 3,1 3,3".split(" "));
     }
 
-
     @Test
     public void testBoardStateChange() {
         int[][] except = new int[7][7];
@@ -30,13 +29,13 @@ public class BoardOperatorTest {
     }
 
     @Test
-    public void testGetCurrentState() {
-        int[] expect = {1, 0, 0};
+    public void testGetAliveNumber() {
+        int[] expect = {3, 0, 2};
         int[] actual = new int[3];
 
-        actual[0] = BoardOperator.getCurrentState(2, 2, board.getCurrBoard());
-        actual[1] = BoardOperator.getCurrentState(1, 1, board.getCurrBoard());
-        actual[2] = BoardOperator.getCurrentState(2, 3, board.getCurrBoard());
+        actual[0] = BoardOperator.getAliveNumber(2, 2, board.getCurrBoard());
+        actual[1] = BoardOperator.getAliveNumber(1, 1, board.getCurrBoard());
+        actual[2] = BoardOperator.getAliveNumber(2, 3, board.getCurrBoard());
 
         Assert.assertArrayEquals(expect, actual);
     }

@@ -7,12 +7,14 @@ import java.util.Scanner;
  */
 public class Game {
     public static void main(String[] args) {
-        Board board = initGame();
+        Board board = initBoard();
+        startGame(board);
+    }
 
+    private static void startGame(Board board) {
         while (true) {
             BoardOperator.showBoard(board.getCurrBoard());
             board.setCurrBoard(BoardOperator.getNextBoard(board.getCurrBoard()));
-
             try {
                 Thread.sleep(Constant.INTERVAL_TIME);
             } catch (InterruptedException e) {
@@ -21,7 +23,7 @@ public class Game {
         }
     }
 
-    public static Board initGame() {
+    public static Board initBoard() {
         String[] points;
         String[] reg = new String[2];
         Scanner scanner = new Scanner(System.in);
@@ -29,8 +31,8 @@ public class Game {
         System.out.println("是(y)否(n)使用默认初始化的坐标");
         if ("y".equals(scanner.nextLine())) {
             points = Constant.INIT_POINTS.split(" ");
-            reg[0] = "50";
-            reg[1] = "50";
+            reg[0] = Constant.INIT_SIZE;
+            reg[1] = Constant.INIT_SIZE;
         } else {
             System.out.println("请输入棋盘大小:(例如：10,10)");
             reg = scanner.nextLine().split(",");
