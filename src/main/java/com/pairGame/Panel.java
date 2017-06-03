@@ -20,6 +20,7 @@ public class Panel extends JFrame {
         this.setLayout(flowLayout);
         this.setResizable(false);
         this.setVisible(true);
+        Graphics g = this.getGraphics();
     }
 
     public void paint(Graphics graphics) {

@@ -23,3 +23,4 @@
  
  - public static String INIT_POINTS = ""; //默认的细胞坐标点集
  - public static String INIT_SIZE = "";//默认的矩阵大小
+
