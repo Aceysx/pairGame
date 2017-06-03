@@ -6,7 +6,6 @@ import java.util.Scanner;
  * Created by acey on 17-6-3.
  */
 public class Game {
-    public static int intervalTime = 0;
     public static void main(String[] args) {
         Board board = initGame();
 
@@ -15,7 +14,7 @@ public class Game {
             board.setCurrBoard(BoardOperator.boardStateChange(board.getCurrBoard()));
 
             try {
-                Thread.sleep(intervalTime);
+                Thread.sleep(Constant.INTERVAL_TIME);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -32,7 +31,7 @@ public class Game {
         String[] points = scanner.nextLine().split(" ");
 
         System.out.println("请输入需要间隔切换的时间（毫秒）");
-        intervalTime = Integer.parseInt(scanner.nextLine());
+        Constant.INTERVAL_TIME = Integer.parseInt(scanner.nextLine());
 
         Board board = new Board(Integer.parseInt(reg[0]), Integer.parseInt(reg[1]));
         board.initBoard(points);
